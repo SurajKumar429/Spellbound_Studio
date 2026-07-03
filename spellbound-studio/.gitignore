@@ -25,4 +25,4 @@ dist-ssr
 
 # Environmenr Variables
 .env
-.env.example
+
