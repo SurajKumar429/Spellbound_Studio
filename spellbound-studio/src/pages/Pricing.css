@@ -1,0 +1,164 @@
+/* ---------- Pricing cards ---------- */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.price-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+
+.price-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.price-card.featured {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    transform: scale(1.02);
+}
+
+.price-card.featured:hover {
+    transform: scale(1.02) translateY(-6px);
+}
+
+.price-badge {
+    align-self: flex-start;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    background: var(--teal);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+}
+
+.price-card h3 {
+    font-size: 22px;
+}
+
+.price-card.featured h3 {
+    color: var(--paper);
+}
+
+.price-amt {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.price-amt .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.price-amt .per {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+}
+
+.price-card.featured .price-amt .per {
+    color: #9B96A3;
+}
+
+.price-desc {
+    margin-top: 10px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+}
+
+.price-card.featured .price-desc {
+    color: #C9C5CE;
+}
+
+.price-list {
+    list-style: none;
+    margin: 26px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    flex: 1;
+}
+
+.price-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 14.5px;
+    color: var(--ink);
+    align-items: flex-start;
+}
+
+.price-card.featured .price-list li {
+    color: #E8E6EB;
+}
+
+.price-list li::before {
+    content: "✦";
+    color: var(--teal);
+    font-size: 11px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.price-card.featured .price-list li::before {
+    color: var(--amber);
+}
+
+.price-card .btn {
+    margin-top: 28px;
+    width: 100%;
+}
+
+.price-note {
+    text-align: center;
+    margin-top: 44px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ---------- FAQ cards (reuses svc-card look) ---------- */
+.faq-section {
+    background: var(--card);
+    border-top: 1px solid var(--line);
+}
+
+.svc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.svc-card h3 {
+    font-size: 18px;
+}
+
+.svc-card p {
+    color: var(--ink-soft);
+    margin-top: 10px;
+    font-size: 14.5px;
+}
+
+
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px) {
+    .price-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,123 @@
+/* ---------- Story ---------- */
+.story-block {
+    max-width: 760px;
+}
+
+.story-block p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-top: 18px;
+}
+
+.story-block p:first-child {
+    margin-top: 0;
+}
+
+/* ---------- Founders ---------- */
+.founders-section {
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.founder-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: left;
+}
+
+.founder-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-avatar span {
+    position: relative;
+    z-index: 1;
+}
+
+.founder-avatar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, .25), transparent 60%);
+}
+
+.founder-card h3 {
+    font-size: 19px;
+}
+
+.founder-card .role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-top: 6px;
+    display: block;
+}
+
+.founder-card p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin-top: 14px;
+}
+
+/* ---------- Values ---------- */
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.value-item h3 {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.value-item h3::before {
+    content: "✦";
+    color: var(--teal);
+    font-size: 14px;
+}
+
+.value-item p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin-top: 10px;
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px) {
+    .founder-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,87 @@
+/* ===========================================================
+   Shared patterns used across multiple pages
+=========================================================== */
+
+/* ---------- Page hero (Portfolio, Pricing, Contact, About) ---------- */
+.page-hero {
+    padding: 76px 0 56px;
+}
+
+.page-hero .eyebrow {
+    margin-bottom: 16px;
+}
+
+.page-hero h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    letter-spacing: -.03em;
+    max-width: 720px;
+}
+
+.page-hero p.lead {
+    margin-top: 18px;
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    max-width: 560px;
+}
+
+/* ---------- Final CTA band (Home, Portfolio, Pricing, About) ---------- */
+.cta-band {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 24px;
+    padding: 64px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 0%, rgba(14, 110, 98, .35), transparent 55%);
+    pointer-events: none;
+}
+
+.cta-band h2 {
+    color: var(--paper);
+    font-size: clamp(28px, 4vw, 42px);
+    position: relative;
+}
+
+.cta-band p {
+    color: #C9C5CE;
+    margin-top: 14px;
+    font-size: 16.5px;
+    position: relative;
+}
+
+.cta-band .btn {
+    margin-top: 30px;
+    position: relative;
+}
+
+/* ---------- Card pattern (Home services, Pricing FAQ) ---------- */
+.svc-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 34px 30px;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+
+.svc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.svc-card h3 {
+    font-size: 18px;
+}
+
+.svc-card p {
+    color: var(--ink-soft);
+    margin-top: 10px;
+    font-size: 14.5px;
+}

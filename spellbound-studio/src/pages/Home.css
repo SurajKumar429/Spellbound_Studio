@@ -1,0 +1,328 @@
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    padding: 100px 0 90px;
+    overflow: hidden;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 640px;
+    height: 640px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(14, 110, 98, .25), rgba(255, 176, 32, .12) 45%, transparent 70%);
+    filter: blur(10px);
+    top: -220px;
+    right: -160px;
+    pointer-events: none;
+    animation: drift 14s ease-in-out infinite;
+}
+
+@keyframes drift {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-30px, 40px) scale(1.08);
+    }
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    letter-spacing: -.03em;
+}
+
+.hero h1 em {
+    font-style: normal;
+    background: linear-gradient(100deg, var(--teal), var(--teal-deep) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p.lead {
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-top: 22px;
+    max-width: 560px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+}
+
+.hero-meta {
+    margin-top: 56px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.hero-meta div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-meta .num {
+    font-size: 26px;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink);
+}
+
+.hero-meta .lbl {
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: .04em;
+}
+
+/* ---------- Service cards ---------- */
+
+
+.svc-price {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.svc-price .from {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.svc-price .amt {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* ---------- Portfolio preview ---------- */
+.work-section {
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.port-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+}
+
+.port-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--line);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    display: block;
+}
+
+.port-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.port-img {
+    aspect-ratio: 16/10.5;
+    overflow: hidden;
+}
+
+.port-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s var(--ease);
+}
+
+.port-card:hover .port-img img {
+    transform: scale(1.05);
+}
+
+.port-body {
+    padding: 22px 24px 26px;
+}
+
+.port-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.port-body h3 {
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.port-body p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin-top: 8px;
+}
+
+.port-link {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--teal);
+}
+
+.port-link .arrow {
+    transition: transform .25s var(--ease);
+}
+
+.port-card:hover .port-link .arrow {
+    transform: translateX(4px);
+}
+
+/* ---------- Process ---------- */
+.process-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line-dark);
+}
+
+.proc-step {
+    padding: 30px 22px 0 0;
+    border-right: 1px solid var(--line-dark);
+    position: relative;
+}
+
+.proc-step:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.proc-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--teal-light, #3FA394);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.proc-step h3 {
+    font-size: 18px;
+    color: var(--paper);
+}
+
+.proc-step p {
+    color: #B7B2BF;
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.55;
+}
+
+/* ---------- Testimonials ---------- */
+.testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.testi-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testi-stars {
+    color: var(--amber);
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.testi-quote {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: var(--ink);
+}
+
+.testi-person {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.testi-person .who b {
+    display: block;
+    font-size: 14px;
+}
+
+.testi-person .who span {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px) {
+    .port-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:860px) {
+    .process-list {
+        grid-template-columns: 1fr;
+    }
+
+    .proc-step {
+        border-right: none;
+        border-bottom: 1px solid var(--line-dark);
+        padding: 28px 0;
+    }
+
+    .proc-step:last-child {
+        border-bottom: none;
+    }
+}

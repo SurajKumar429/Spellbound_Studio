@@ -1,0 +1,236 @@
+/* ---------- Filter chips ---------- */
+.filter-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+}
+
+.filter-chip {
+    padding: 9px 18px;
+    border-radius: 100px;
+    border: 1.5px solid var(--line);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: transparent;
+    transition: all .2s var(--ease);
+}
+
+.filter-chip:hover {
+    border-color: var(--ink);
+}
+
+.filter-chip.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+}
+
+/* ---------- Portfolio grid ---------- */
+.port-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+}
+
+.port-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--line);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    display: block;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+    font-family: inherit;
+}
+
+.port-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.port-img {
+    aspect-ratio: 16/10.5;
+    overflow: hidden;
+}
+
+.port-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s var(--ease);
+}
+
+.port-card:hover .port-img img {
+    transform: scale(1.05);
+}
+
+.port-body {
+    padding: 22px 24px 26px;
+}
+
+.port-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.port-body h3 {
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.port-body p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin-top: 8px;
+}
+
+.port-link {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--teal);
+}
+
+.port-link .arrow {
+    transition: transform .25s var(--ease);
+}
+
+.port-card:hover .port-link .arrow {
+    transform: translateX(4px);
+}
+
+
+/* ---------- Case study slide-over ---------- */
+.case-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(23, 21, 26, .55);
+    backdrop-filter: blur(3px);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s var(--ease);
+}
+
+.case-modal-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.case-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(560px, 92vw);
+    background: var(--paper);
+    z-index: 201;
+    transform: translateX(100%);
+    transition: transform .4s var(--ease);
+    overflow-y: auto;
+    padding: 36px 34px 60px;
+}
+
+.case-modal.open {
+    transform: translateX(0);
+}
+
+.case-close {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-bottom: 28px;
+}
+
+.case-img {
+    aspect-ratio: 16/10.5;
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 26px;
+}
+
+.case-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.case-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.case-modal h2 {
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.case-section {
+    margin-top: 26px;
+}
+
+.case-section h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--teal);
+    margin-bottom: 8px;
+}
+
+.case-section p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.case-stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.case-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.case-stats .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--teal);
+}
+
+.case-stats .lbl {
+    font-size: 12px;
+    color: var(--ink-faint);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:760px) {
+    .port-grid {
+        grid-template-columns: 1fr;
+    }
+}
