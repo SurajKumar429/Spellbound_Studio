@@ -4,25 +4,25 @@ import './About.css';
 
 const founders = [
     {
-        initials: 'NM',
+        initials: 'RKM',
         color: 'linear-gradient(135deg,#0E6E62,#FFB020)',
-        name: 'Nadia Morais',
-        role: 'Design Lead',
-        bio: 'Ten years designing for startups before co-founding Spellbound. Obsessive about type, spacing, and pages that load in under a second.',
+        name: 'Rakesh Kumar Meher',
+        role: 'Backend Developer',
+        bio: 'Passionate backend developer with experience building scalable APIs, designing databases, and developing secure server-side applications.',
     },
     {
-        initials: 'KO',
+        initials: 'SS',
         color: 'linear-gradient(135deg,#0A5147,#123B33)',
-        name: 'Kian Osei',
-        role: 'Development Lead',
-        bio: 'Builds every site by hand — no page-builder bloat. Formerly a front-end engineer at a mid-size product company.',
+        name: 'Sunita Sahu',
+        role: 'Software Engineer',
+        bio: 'Passionate Software Development Engineer with a strong foundation in data structures, algorithms, and software engineering principles.',
     },
     {
-        initials: 'EV',
+        initials: 'SKN',
         color: 'linear-gradient(135deg,#3A5AE0,#1B1B2F)',
-        name: 'Elena Voss',
-        role: 'Client Strategy',
-        bio: 'Runs discovery and keeps projects on schedule. Previously ran ops for a boutique branding agency.',
+        name: 'Suraj Kumar Negi',
+        role: 'Fullstack Developer',
+        bio: 'Builds every site by hand — no page-builder bloat. Formerly a  SDE in a startup company.',
     },
 ];
 
