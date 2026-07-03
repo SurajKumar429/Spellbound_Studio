@@ -2,24 +2,26 @@ import { Link } from 'react-router-dom';
 import useReveal from '../hooks/useReveal';
 import './About.css';
 
+// founders
+import rakesh from '../assets/founders/rakesh.png';
+import sunita from '../assets/founders/sunita.png';
+import suraj from '../assets/founders/suraj.png';
+
 const founders = [
     {
-        initials: 'NM',
-        color: 'linear-gradient(135deg,#0E6E62,#FFB020)',
+        photo: rakesh,
         name: 'Nadia Morais',
         role: 'Design Lead',
         bio: 'Ten years designing for startups before co-founding Spellbound. Obsessive about type, spacing, and pages that load in under a second.',
     },
     {
-        initials: 'KO',
-        color: 'linear-gradient(135deg,#0A5147,#123B33)',
+        photo: sunita,
         name: 'Kian Osei',
         role: 'Development Lead',
         bio: 'Builds every site by hand — no page-builder bloat. Formerly a front-end engineer at a mid-size product company.',
     },
     {
-        initials: 'EV',
-        color: 'linear-gradient(135deg,#3A5AE0,#1B1B2F)',
+        photo: suraj,
         name: 'Elena Voss',
         role: 'Client Strategy',
         bio: 'Runs discovery and keeps projects on schedule. Previously ran ops for a boutique branding agency.',
@@ -85,8 +87,8 @@ export default function About() {
                     <div className="founder-grid reveal-stagger">
                         {founders.map((f) => (
                             <div className="founder-card" key={f.name}>
-                                <div className="founder-avatar" style={{ background: f.color }}>
-                                    <span>{f.initials}</span>
+                                <div className="founder-avatar">
+                                    <img src={f.photo} alt={f.name} />
                                 </div>
                                 <h3>{f.name}</h3>
                                 <span className="role">{f.role}</span>
