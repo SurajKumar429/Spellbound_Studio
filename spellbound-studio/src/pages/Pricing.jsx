@@ -6,7 +6,7 @@ const tiers = [
     {
         id: 'landing',
         name: 'Landing Page',
-        price: '$900',
+        price: '7000 INR',
         desc: 'A single, high-converting page for a launch, campaign, or simple business presence.',
         features: [
             '1 custom-designed page',
@@ -21,7 +21,7 @@ const tiers = [
     {
         id: 'website',
         name: 'Full Website',
-        price: '$2,400',
+        price: '20,000 INR',
         desc: 'A complete multi-page site built to represent your whole business, not just one offer.',
         features: [
             'Up to 6 custom-designed pages',
@@ -38,7 +38,7 @@ const tiers = [
     {
         id: 'ecommerce',
         name: 'E-commerce Website',
-        price: '$4,200',
+        price: '50,000 INR',
         desc: 'A full storefront built to take orders — catalog, cart, checkout, and payments included.',
         features: [
             'Up to 10 custom-designed pages',

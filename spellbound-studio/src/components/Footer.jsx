@@ -28,7 +28,7 @@ export default function Footer() {
                         <div className="foot-col">
                             <h4>Get in touch</h4>
                             <Link to="/contact">Start a Project</Link>
-                            <a href="mailto:hello@spellboundstudio.com">hello@spellboundstudio.com</a>
+                            <a href="mailto:spellbound.studio3@gmail.com">spellbound.studio3@gmail.com</a>
                         </div>
                     </div>
                 </div>

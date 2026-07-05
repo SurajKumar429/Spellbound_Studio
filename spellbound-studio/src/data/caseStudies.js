@@ -2,8 +2,8 @@ const caseStudies = [
     {
         id: 'kettlebread',
         category: 'landing',
-        tag: 'Landing Page · Food & Bev',
-        title: 'Kettlebread Bakery',
+        tag: 'Landing Page · Travel and Explore',
+        title: 'Mystic India',
         blurb: 'A one-page pre-order launch that sold out its first batch in 48 hours.',
         image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop',
         problem: 'Kettlebread was taking pre-orders over Instagram DMs, losing track of orders and missing pickup times during their weekend launch.',

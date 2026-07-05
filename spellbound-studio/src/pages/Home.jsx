@@ -5,8 +5,8 @@ import './Home.css';
 const portfolioPreview = [
     {
         id: 'kettlebread',
-        tag: 'Landing Page · Food & Bev',
-        title: 'Kettlebread Bakery',
+        tag: 'Landing Page · Travel & Explore',
+        title: 'Mystic India',
         blurb: 'A one-page pre-order launch that sold out its first batch in 48 hours.',
         image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop',
     },
@@ -122,19 +122,19 @@ export default function Home() {
                             <div className="svc-icon">◆</div>
                             <h3>Landing Page</h3>
                             <p>A single, sharply-written page built to turn visitors into leads — perfect for launches, campaigns, or a first web presence.</p>
-                            <div className="svc-price"><span className="from">Starting at</span><span className="amt">$900</span></div>
+                            <div className="svc-price"><span className="from">Starting at</span><span className="amt">7000 INR</span></div>
                         </div>
                         <div className="svc-card">
                             <div className="svc-icon">▣</div>
                             <h3>Full Website</h3>
                             <p>A complete multi-page site — home, about, services, contact and more — designed around how customers actually find you.</p>
-                            <div className="svc-price"><span className="from">Starting at</span><span className="amt">$2,400</span></div>
+                            <div className="svc-price"><span className="from">Starting at</span><span className="amt">20,000 INR</span></div>
                         </div>
                         <div className="svc-card">
                             <div className="svc-icon">◈</div>
                             <h3>E-commerce Website</h3>
                             <p>A storefront built to sell — product catalog, cart, checkout, and payments, ready to take orders from day one.</p>
-                            <div className="svc-price"><span className="from">Starting at</span><span className="amt">$4,200</span></div>
+                            <div className="svc-price"><span className="from">Starting at</span><span className="amt">50,000 INR</span></div>
                         </div>
                     </div>
                 </div>
