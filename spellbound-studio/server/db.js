@@ -1,34 +1,67 @@
-import Database from 'better-sqlite3';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import pg from "pg";
+import dotenv from "dotenv";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const db = new Database(path.join(__dirname, 'spellbound.db'));
+dotenv.config();
 
-db.exec(`
-  CREATE TABLE IF NOT EXISTS submissions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    business TEXT NOT NULL,
-    industry TEXT NOT NULL,
-    projectType TEXT NOT NULL,
-    budget TEXT NOT NULL,
-    timeline TEXT NOT NULL,
-    details TEXT NOT NULL,
-    inspiration TEXT,
-    createdAt TEXT NOT NULL DEFAULT (datetime('now'))
-  )
-`);
+const { Pool } = pg;
 
-export function insertSubmission(data) {
-    const stmt = db.prepare(`
-    INSERT INTO submissions
-      (name, email, business, industry, projectType, budget, timeline, details, inspiration)
-    VALUES (@name, @email, @business, @industry, @projectType, @budget, @timeline, @details, @inspiration)
-  `);
-    const info = stmt.run(data);
-    return info.lastInsertRowid;
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+});
+
+// Create table if it doesn't exist
+export async function initializeDatabase() {
+    try {
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS submissions (
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                email VARCHAR(255) NOT NULL,
+                business VARCHAR(255) NOT NULL,
+                industry VARCHAR(255) NOT NULL,
+                project_type VARCHAR(255) NOT NULL,
+                budget VARCHAR(255) NOT NULL,
+                timeline VARCHAR(255) NOT NULL,
+                details TEXT NOT NULL,
+                inspiration TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `);
+
+        console.log("✅ PostgreSQL connected.");
+        console.log("✅ submissions table ready.");
+    } catch (err) {
+        console.error("Database Initialization Error:", err);
+    }
 }
 
-export default db;
+export async function insertSubmission(data) {
+    const query = `
+        INSERT INTO submissions (
+            name, email, business, industry, project_type, budget, timeline, details, inspiration
+        )
+        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
+        RETURNING id;
+    `;
+
+    const values = [
+        data.name,
+        data.email,
+        data.business,
+        data.industry,
+        data.projectType,
+        data.budget,
+        data.timeline,
+        data.details,
+        data.inspiration,
+    ];
+
+    const result = await pool.query(query, values);
+
+    return result.rows[0].id;
+}
+
+export default pool;

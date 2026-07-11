@@ -1,8 +1,11 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { Resend } from 'resend';
-import { insertSubmission } from './db.js';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import nodemailer from "nodemailer";
+import {
+    insertSubmission,
+    initializeDatabase,
+} from "./db.js";
 
 dotenv.config();
 
@@ -11,29 +14,46 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
-const resend = new Resend(process.env.RESEND_API_KEY);
 
-const requiredFields = [
-    'name', 'email', 'business', 'industry',
-    'projectType', 'budget', 'timeline', 'details',
+// Gmail Transporter
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
+
+const requiredFields = ["name", "email", "business", "industry",
+"projectType", "budget", "timeline", "details",
 ];
 
-app.post('/api/contact', async (req, res) => {
+app.post("/api/contact", async (req, res) => {
     const data = req.body || {};
 
-    // Server-side validation — never trust the client alone
-    const missing = requiredFields.filter((field) => !data[field] || !String(data[field]).trim());
+    const missing = requiredFields.filter(
+        (field) => !data[field] || !String(data[field]).trim()
+    );
+
     if (missing.length > 0) {
-        return res.status(400).json({ error: 'Missing required fields', missing });
+        return res.status(400).json({
+            error: "Missing required fields",
+            missing,
+        });
     }
+
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim());
+
     if (!emailOk) {
-        return res.status(400).json({ error: 'Invalid email address' });
+        return res.status(400).json({
+            error: "Invalid email address",
+        });
     }
 
     let submissionId;
+
     try {
-        submissionId = insertSubmission({
+        submissionId = await insertSubmission({
             name: data.name.trim(),
             email: data.email.trim(),
             business: data.business.trim(),
@@ -42,44 +62,89 @@ app.post('/api/contact', async (req, res) => {
             budget: data.budget,
             timeline: data.timeline,
             details: data.details.trim(),
-            inspiration: data.inspiration ? data.inspiration.trim() : null,
+            inspiration: data.inspiration
+                ? data.inspiration.trim()
+                : null,
         });
     } catch (err) {
-        console.error('DB insert failed:', err);
-        return res.status(500).json({ error: 'Could not save submission' });
+        console.error("Database Error:", err);
+
+        return res.status(500).json({
+            error: "Could not save submission",
+        });
     }
 
-    // Try to send the email, but don't fail the whole request if email fails —
-    // the submission is already safely stored in the database either way.
     try {
-        await resend.emails.send({
-            from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
+        // Admin Email
+        await transporter.sendMail({
+            from: `"Spellbound Studio" <${process.env.EMAIL_USER}>`,
             to: process.env.NOTIFY_TO,
             replyTo: data.email.trim(),
-            subject: `New project inquiry — ${data.business}`,
-            text: [
-                `Name: ${data.name}`,
-                `Email: ${data.email}`,
-                `Business: ${data.business}`,
-                `Industry: ${data.industry}`,
-                `Project Type: ${data.projectType}`,
-                `Budget: ${data.budget}`,
-                `Timeline: ${data.timeline}`,
-                `Inspiration: ${data.inspiration || '—'}`,
-                '',
-                'Details:',
-                data.details,
-            ].join('\n'),
+            subject: `New Project Inquiry - ${data.business}`,
+            text: `
+            New Project Inquiry
+
+            Name: ${data.name}
+
+            Email: ${data.email}
+
+            Business: ${data.business}
+
+            Industry: ${data.industry}
+
+            Project Type: ${data.projectType}
+
+            Budget: ${data.budget}
+
+            Timeline: ${data.timeline}
+
+            Inspiration: ${data.inspiration || "N/A"}
+
+            Details:
+
+            ${data.details}
+            `,
         });
+
+        // Customer Email
+        await transporter.sendMail({
+            from: `"Spellbound Studio" <${process.env.EMAIL_USER}>`,
+            to: data.email.trim(),
+            subject: "Thank You for Contacting Spellbound Studio",
+            text: `
+            Hi ${data.name},
+
+            Thank you for contacting Spellbound Studio.
+
+            We have received your inquiry.
+
+            Our team will contact you shortly.
+
+            Regards,
+
+            Spellbound Studio
+            `,
+        });
+
+        console.log("Emails sent successfully.");
     } catch (err) {
-        console.error('Email send failed (submission was still saved):', err.message);
+        console.error("Email Error:", err);
     }
 
-    res.status(201).json({ ok: true, id: submissionId });
+    return res.status(201).json({
+        ok: true,
+        id: submissionId,
+    });
 });
 
-app.get('/api/health', (req, res) => res.json({ ok: true }));
+app.get("/api/health", (req, res) => {
+    res.json({
+        ok: true,
+    });
+});
+
+await initializeDatabase();
 
 app.listen(PORT, () => {
-    console.log(`Spellbound API running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
