@@ -10,7 +10,7 @@ export default function Footer() {
                         <Link className="logo" to="/">
                             <span className="logo-mark">✦</span>Spellbound Studio
                         </Link>
-                        <p>Landing pages and websites for small businesses and startups — live in days, not months.</p>
+                        <p>Landing pages and websites for small businesses and startups —  fast, beautiful, and scalable.</p>
                         <div className="socials">
                             <a href="#" aria-label="Instagram">◎</a>
                             <a href="#" aria-label="LinkedIn">in</a>

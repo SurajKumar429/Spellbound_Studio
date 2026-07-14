@@ -126,7 +126,9 @@
 .port-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 26px;
+    gap: 20px;
+    height: 40%;
+    width: 100%;
 }
 
 .port-card {
@@ -144,13 +146,13 @@
 }
 
 .port-img {
-    aspect-ratio: 16/10.5;
+    aspect-ratio: 5/10.5;
     overflow: hidden;
 }
 
 .port-img img {
-    width: 100%;
-    height: 100%;
+    width: 0;
+    height: 0;
     object-fit: cover;
     transition: transform .5s var(--ease);
 }

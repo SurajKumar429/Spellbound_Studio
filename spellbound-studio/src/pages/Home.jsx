@@ -1,35 +1,39 @@
 import { Link } from 'react-router-dom';
 import useReveal from '../hooks/useReveal';
 import './Home.css';
+import mysticindia from '../assets/portfolio/mysticindia.jpeg';
+import smartattendence from '../assets/portfolio/smartattendence.jpeg';
+import bookbazaar from '../assets/portfolio/bookbazaar.jpeg';
+import todoexpee from '../assets/portfolio/todoexpee.jpeg';
 
 const portfolioPreview = [
     {
-        id: 'kettlebread',
+        id: 'MysticIndia',
         tag: 'Landing Page · Travel & Explore',
         title: 'Mystic India',
-        blurb: 'A one-page pre-order launch that sold out its first batch in 48 hours.',
-        image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop',
+        blurb: 'A captivating landing page for a travel blog.',
+        image: mysticindia,
     },
     {
-        id: 'pilates',
-        tag: 'Full Website · Wellness',
-        title: 'Coastal Pilates Studio',
-        blurb: 'A 6-page booking site that cut phone scheduling calls by 70%.',
-        image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop',
+        id: 'Attendence',
+        tag: 'Full Website · Workforce Management',
+        title: 'Smart Attendance Management System',
+        blurb: 'An efficient attendance management system designed for organizations and teams.',
+        image: smartattendence,
     },
     {
-        id: 'northbound',
-        tag: 'E-commerce · Retail',
-        title: 'Northbound Supply Co.',
-        blurb: 'An online storefront that took 300+ orders in its launch month.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
+        id: 'Bookbazaar',
+        tag: 'E-commerce · Book Marketplace',
+        title: 'Book Bazaar',
+        blurb: 'Buy and sell pre-owned books through a simple and user-friendly online marketplace.',
+        image: bookbazaar,
     },
     {
-        id: 'merrow',
-        tag: 'Landing Page · Professional Services',
-        title: 'Merrow & Associates',
-        blurb: 'A credibility-first page that doubled inbound consult requests.',
-        image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop',
+        id: 'Todoexpee',
+        tag: 'Landing Page · Tasks & Expenses',
+        title: 'Todo-Expee',
+        blurb: 'Track tasks, monitor expenses, and stay organized every day.',
+        image: todoexpee,
     },
 ];
 
@@ -91,7 +95,7 @@ export default function Home() {
                 <div className="wrap hero-inner">
                     <p className="eyebrow reveal in">Web design & development studio</p>
                     <h1 style={{ marginTop: 18 }}>
-                        We build landing pages &amp; websites that <em>convert</em> — live in days, not months
+                        We build landing pages &amp; websites that <em>convert</em> — fast, beautiful, and scalable.
                     </h1>
                     <p className="lead">
                         Spellbound Studio partners with small businesses and startups to design, build, and
@@ -102,9 +106,9 @@ export default function Home() {
                         <Link to="/portfolio" className="btn btn-ghost">See Our Work</Link>
                     </div>
                     <div className="hero-meta">
-                        <div><span className="num">120+</span><span className="lbl">SITES LAUNCHED</span></div>
-                        <div><span className="num">6 DAYS</span><span className="lbl">AVG. TURNAROUND</span></div>
-                        <div><span className="num">4.9/5</span><span className="lbl">CLIENT RATING</span></div>
+                        <div><span className="num">20+</span><span className="lbl">SITES LAUNCHED</span></div>
+                        <div><span className="num">15 Days</span><span className="lbl">AVG. TURNAROUND</span></div>
+                        <div><span className="num">--</span><span className="lbl">CLIENT RATING</span></div>
                     </div>
                 </div>
             </section>
