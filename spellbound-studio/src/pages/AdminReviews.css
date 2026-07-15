@@ -1,0 +1,90 @@
+.admin-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.admin-review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.admin-review-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+}
+
+.admin-review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.admin-review-name {
+    font-weight: 600;
+    font-size: 14.5px;
+    margin: 0;
+}
+
+.admin-review-biz {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin: 2px 0 0;
+}
+
+.admin-review-stars {
+    color: var(--amber);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.admin-review-quote {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.admin-review-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-review-actions button {
+    flex: 1;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border: 1.5px solid var(--line);
+    transition: all .15s var(--ease);
+}
+
+.btn-approve {
+    background: #EAF7EE;
+    color: #1E7A38;
+    border-color: #CFEBD8 !important;
+}
+
+.btn-approve:hover {
+    background: #1E7A38;
+    color: #fff;
+}
+
+.btn-reject {
+    background: transparent;
+    color: var(--ink-soft);
+}
+
+.btn-reject:hover {
+    border-color: #D6473A !important;
+    color: #D6473A;
+}

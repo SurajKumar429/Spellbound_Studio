@@ -1,0 +1,23 @@
+.star-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    line-height: 1;
+    padding: 2px;
+    color: var(--line);
+    transition: color .15s var(--ease), transform .15s var(--ease);
+}
+
+.star-btn:hover {
+    transform: scale(1.1);
+}
+
+.star-btn.filled {
+    color: var(--amber);
+}

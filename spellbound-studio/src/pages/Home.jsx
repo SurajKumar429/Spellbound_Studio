@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useReveal from '../hooks/useReveal';
 import './Home.css';
@@ -60,32 +61,43 @@ const process = [
     },
 ];
 
-const testimonials = [
-    {
-        initials: 'RM',
-        color: 'linear-gradient(135deg,#0E6E62,#FFB020)',
-        quote: '"We had a working, beautiful site in five days. Spellbound actually listened instead of pushing a template at us."',
-        name: 'Rosa Marchetti',
-        biz: 'Kettlebread Bakery',
-    },
-    {
-        initials: 'JT',
-        color: 'linear-gradient(135deg,#0A5147,#123B33)',
-        quote: '"Bookings went up almost immediately after launch. The revision process was painless."',
-        name: 'Jordan Tan',
-        biz: 'Coastal Pilates Studio',
-    },
-    {
-        initials: 'DN',
-        color: 'linear-gradient(135deg,#3A5AE0,#1B1B2F)',
-        quote: '"They handled the store setup end-to-end. I sold products online for the first time and it just worked from day one."',
-        name: 'Devon Ng',
-        biz: 'Northbound Supply Co.',
-    },
-];
+// const testimonials = [
+//     {
+//         initials: 'RM',
+//         color: 'linear-gradient(135deg,#0E6E62,#FFB020)',
+//         quote: '"We had a working, beautiful site in five days. Spellbound actually listened instead of pushing a template at us."',
+//         name: 'Rosa Marchetti',
+//         biz: 'Kettlebread Bakery',
+//     },
+//     {
+//         initials: 'JT',
+//         color: 'linear-gradient(135deg,#0A5147,#123B33)',
+//         quote: '"Bookings went up almost immediately after launch. The revision process was painless."',
+//         name: 'Jordan Tan',
+//         biz: 'Coastal Pilates Studio',
+//     },
+//     {
+//         initials: 'DN',
+//         color: 'linear-gradient(135deg,#3A5AE0,#1B1B2F)',
+//         quote: '"They handled the store setup end-to-end. I sold products online for the first time and it just worked from day one."',
+//         name: 'Devon Ng',
+//         biz: 'Northbound Supply Co.',
+//     },
+// ];
 
 export default function Home() {
     useReveal();
+
+    const [reviews, setReviews] = useState([]);
+    const [reviewsLoaded, setReviewsLoaded] = useState(false);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/api/reviews')
+            .then((res) => res.json())
+            .then((data) => setReviews(data))
+            .catch(() => setReviews([]))
+            .finally(() => setReviewsLoaded(true));
+    }, []);
 
     return (
         <>
@@ -191,7 +203,7 @@ export default function Home() {
             </section>
 
             {/* TESTIMONIALS */}
-            <section>
+            {/* <section>
                 <div className="wrap">
                     <div className="section-head reveal">
                         <p className="eyebrow">Client stories</p>
@@ -209,6 +221,45 @@ export default function Home() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section> */}
+
+            {/* REVIEWS */}
+            <section>
+                <div className="wrap">
+                    <div className="section-head reveal">
+                        <p className="eyebrow">Client stories</p>
+                        <h2>What people are saying</h2>
+                    </div>
+
+                    {reviewsLoaded && reviews.length === 0 && (
+                        <div className="reviews-empty reveal in">
+                            <p>We're a new studio — no reviews yet, but we'd love yours if you've worked with us.</p>
+                            <Link to="/rate-us" className="btn btn-ghost">Leave a Review</Link>
+                        </div>
+                    )}
+
+                    {reviews.length > 0 && (
+                        <>
+                            <div className="testi-grid reveal-stagger">
+                                {reviews.slice(0, 3).map((r) => (
+                                    <div className="testi-card" key={r.id}>
+                                        <div className="testi-stars">{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</div>
+                                        <p className="testi-quote">"{r.quote}"</p>
+                                        <div className="testi-person">
+                                            <div className="avatar" style={{ background: 'var(--teal)' }}>
+                                                {r.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()}
+                                            </div>
+                                            <div className="who"><b>{r.name}</b>{r.business && <span>{r.business}</span>}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <p style={{ textAlign: 'center', marginTop: 32 }}>
+                                <Link to="/rate-us" className="btn btn-ghost">Leave a Review</Link>
+                            </p>
+                        </>
+                    )}
                 </div>
             </section>
 

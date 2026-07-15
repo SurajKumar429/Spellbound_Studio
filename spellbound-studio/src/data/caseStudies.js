@@ -1,11 +1,16 @@
+import mysticindia from '../assets/portfolio/mysticindia.jpeg';
+import smartattendence from '../assets/portfolio/smartattendence.jpeg';
+import bookbazaar from '../assets/portfolio/bookbazaar.jpeg';
+import todoexpee from '../assets/portfolio/todoexpee.jpeg';
+
 const caseStudies = [
     {
-        id: 'kettlebread',
+        id: 'MysticIndia',
         category: 'landing',
         tag: 'Landing Page · Travel and Explore',
         title: 'Mystic India',
-        blurb: 'A one-page pre-order launch that sold out its first batch in 48 hours.',
-        image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop',
+        blurb: 'A captivating landing page for a travel blog.',
+        image: mysticindia,
         problem: 'Kettlebread was taking pre-orders over Instagram DMs, losing track of orders and missing pickup times during their weekend launch.',
         solution: 'We designed a single-page pre-order site with a live order form, pickup time picker, and a bold, photo-led hero that matched their in-store branding.',
         result: 'Their first online launch weekend sold out in under 48 hours, with zero missed orders.',
@@ -16,12 +21,12 @@ const caseStudies = [
         ],
     },
     {
-        id: 'pilates',
+        id: 'Attendence',
         category: 'website',
-        tag: 'Full Website · Wellness',
-        title: 'Coastal Pilates Studio',
-        blurb: 'A 6-page booking site that cut phone scheduling calls by 70%.',
-        image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop',
+        tag: 'Full Website · Workforce Management',
+        title: 'Smart Attendance Management System',
+        blurb: 'An efficient attendance management system designed for organizations and teams.',
+        image: smartattendence,
         problem: 'The studio relied on phone calls for class bookings, which ate staff time and led to double-bookings during busy weeks.',
         solution: 'We built a 6-page site with class schedules, instructor bios, and an embedded booking calendar so clients could self-serve.',
         result: 'Phone scheduling calls dropped by 70% in the first month, freeing staff to focus on classes.',
@@ -32,12 +37,12 @@ const caseStudies = [
         ],
     },
     {
-        id: 'northbound',
+        id: 'Bookbazaar',
         category: 'ecommerce',
-        tag: 'E-commerce · Retail',
-        title: 'Northbound Supply Co.',
-        blurb: 'An online storefront that took 300+ orders in its launch month.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
+        tag: 'E-commerce · Book Marketplace',
+        title: 'Book Bazaar',
+        blurb: 'Buy and sell pre-owned books through a simple and user-friendly online marketplace.',
+        image: bookbazaar,
         problem: 'Northbound sold exclusively at markets and pop-ups, with no way for customers to buy outside of in-person events.',
         solution: 'We built a full storefront with product catalog, cart, and checkout, plus shipping rules tailored to their fulfillment process.',
         result: 'The store took over 300 orders in its first month live, opening a new revenue channel beyond markets.',
@@ -48,12 +53,12 @@ const caseStudies = [
         ],
     },
     {
-        id: 'merrow',
+        id: 'Todoexpee',
         category: 'landing',
-        tag: 'Landing Page · Professional Services',
-        title: 'Merrow & Associates',
-        blurb: 'A credibility-first page that doubled inbound consult requests.',
-        image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop',
+        tag: 'Landing Page · Tasks & Expenses',
+        title: 'Todo-Expee',
+        blurb: 'Track tasks, monitor expenses, and stay organized every day.',
+        image: todoexpee,
         problem: "The firm's old site looked outdated and gave visitors no clear way to request a consultation.",
         solution: 'We designed a credibility-first landing page with clear service breakdowns, client logos, and a prominent consult request form.',
         result: 'Inbound consultation requests doubled within six weeks of launch.',

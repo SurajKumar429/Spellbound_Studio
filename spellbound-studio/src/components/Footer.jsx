@@ -28,7 +28,13 @@ export default function Footer() {
                         <div className="foot-col">
                             <h4>Get in touch</h4>
                             <Link to="/contact">Start a Project</Link>
-                            <a href="mailto:spellbound.studio3@gmail.com">spellbound.studio3@gmail.com</a>
+                            <a
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=spellbound.studio3@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                spellbound.studio3@gmail.com
+                            </a>
                         </div>
                     </div>
                 </div>
